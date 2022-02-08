@@ -1,12 +1,12 @@
 # Simple SOLID smells
-This repo contains simple code examples. Each one violate a SOLID principle.
+This repo contains simple code examples. Each one violates a SOLID principle.
 
 ## How to do those kata
 For each folder:
 1. Analyze the code and identify which principle is not followed
 2. Refactor the code to respect the principle
 
-And voilà !
+And voilà!
 
 ## SOLID Principles
 ### Single Responsibility Principle
