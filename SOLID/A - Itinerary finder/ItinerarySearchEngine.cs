@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SOLID.OpenClosePrinciple
+namespace SOLID.A___Itinerary_finder
 {
 
     public class ItinerarySearchEngine

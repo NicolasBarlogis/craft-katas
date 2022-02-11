@@ -1,6 +1,6 @@
-using SOLID.DependencyInversion.infrastructure;
+using SOLID.A___Book_reservation.infrastructure;
 
-namespace SOLID.DependencyInversion.domain.booking
+namespace SOLID.A___Book_reservation.domain.booking
 {
     public class BookingService
     {

@@ -1,4 +1,4 @@
-namespace SOLID.DependencyInversion.infrastructure
+namespace SOLID.A___Book_reservation.infrastructure
 {
     public class AvailabilityDaoImpl : IAvailabilityDao {
     

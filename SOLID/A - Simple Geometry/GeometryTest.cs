@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace SOLID.Liskov
+namespace SOLID.A___Simple_Geometry
 {
     public class GeometryTest
     {

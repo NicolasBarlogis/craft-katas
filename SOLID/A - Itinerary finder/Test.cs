@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace SOLID.OpenClosePrinciple
+namespace SOLID.A___Itinerary_finder
 {
 
     public class ItinerarySearchTest

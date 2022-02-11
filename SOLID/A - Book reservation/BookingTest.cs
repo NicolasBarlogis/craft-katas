@@ -1,9 +1,9 @@
 using Moq;
-using SOLID.DependencyInversion.domain.booking;
-using SOLID.DependencyInversion.infrastructure;
+using SOLID.A___Book_reservation.domain.booking;
+using SOLID.A___Book_reservation.infrastructure;
 using Xunit;
 
-namespace SOLID.DependencyInversion
+namespace SOLID.A___Book_reservation
 {
     public class BookingTest
     {

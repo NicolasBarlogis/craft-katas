@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 
-namespace SOLID.SingleResponsability
+namespace SOLID.A___Rectangle
 {
     public class Rectangle
     {

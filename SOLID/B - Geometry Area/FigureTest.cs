@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace SOLID.OtherOCP
+namespace SOLID.B___Geometry_Area
 {
     public class FigureTest
     {

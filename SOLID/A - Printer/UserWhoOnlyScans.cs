@@ -1,4 +1,4 @@
-namespace SOLID.InterfaceSegregation
+namespace SOLID.A___Printer
 {
     public class UserWhoOnlyScans {
 

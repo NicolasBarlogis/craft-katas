@@ -1,4 +1,4 @@
-﻿namespace SOLID.OtherOCP
+﻿namespace SOLID.B___Geometry_Area
 {
     public class Rectangle : IFigure
     {

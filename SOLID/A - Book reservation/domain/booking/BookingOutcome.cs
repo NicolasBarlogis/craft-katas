@@ -1,4 +1,4 @@
-namespace SOLID.DependencyInversion.domain.booking
+namespace SOLID.A___Book_reservation.domain.booking
 {
     public class BookingOutcome {
         private readonly bool successful;

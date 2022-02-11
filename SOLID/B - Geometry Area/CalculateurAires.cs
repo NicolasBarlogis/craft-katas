@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SOLID.OtherOCP
+namespace SOLID.B___Geometry_Area
 {
     public class CalculateurAires
     {
