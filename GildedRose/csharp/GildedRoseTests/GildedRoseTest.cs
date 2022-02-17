@@ -12,6 +12,6 @@ public class GildedRoseTest
         IList<Item> Items = new List<Item> {new() {Name = "foo", SellIn = 0, Quality = 0}};
         var gildedRose = new GildedRose(Items);
         gildedRose.UpdateQuality();
-        Assert.Equal("fixme", Items[0].Name);
+        Assert.Equal("foo", Items[0].Name);
     }
 }
