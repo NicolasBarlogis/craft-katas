@@ -1,17 +1,24 @@
-using System.Collections.Generic;
 using GildedRoseKata;
-using Xunit;
+using Newtonsoft.Json;
 
 namespace GildedRoseTests;
 
+[UsesVerify]
 public class GildedRoseTest
 {
-    [Fact]
-    public void foo()
+    public GildedRoseTest()
     {
-        IList<Item> Items = new List<Item> {new() {Name = "foo", SellIn = 0, Quality = 0}};
+        VerifierSettings.ModifySerialization(settings =>
+            settings.AddExtraSettings(serializerSettings =>
+                serializerSettings.DefaultValueHandling = DefaultValueHandling.Include));
+    }
+
+    [Fact]
+    public Task foo()
+    {
+        IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 0, Quality = 0 } };
         var gildedRose = new GildedRose(Items);
         gildedRose.UpdateQuality();
-        Assert.Equal("foo", Items[0].Name);
+        return Verify(Items);
     }
 }
