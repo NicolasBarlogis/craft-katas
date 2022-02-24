@@ -19,7 +19,7 @@ public class GildedRoseTest
     {
         StringBuilder sb = new();
         using StringWriter stream = new(sb);
-        
+
         Console.SetOut(stream);
         Program.Main(Array.Empty<string>());
 
