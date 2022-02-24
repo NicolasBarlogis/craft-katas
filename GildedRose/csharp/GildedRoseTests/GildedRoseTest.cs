@@ -1,3 +1,4 @@
+using System.Text;
 using GildedRoseKata;
 using Newtonsoft.Json;
 
@@ -16,9 +17,12 @@ public class GildedRoseTest
     [Fact]
     public Task foo()
     {
-        IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 0, Quality = 0 } };
-        var gildedRose = new GildedRose(Items);
-        gildedRose.UpdateQuality();
-        return Verify(Items);
+        StringBuilder sb = new();
+        using StringWriter stream = new(sb);
+        
+        Console.SetOut(stream);
+        Program.Main(Array.Empty<string>());
+
+        return Verify(sb.ToString());
     }
 }
