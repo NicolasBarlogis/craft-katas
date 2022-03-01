@@ -2,8 +2,11 @@
 Refactoring Kata, allowing to manipulate multiple concepts and techniques:
  * [Tell don't ask principle](https://martinfowler.com/bliki/TellDontAsk.html)
  * Anti pattern [anemic domain model](https://martinfowler.com/bliki/AnemicDomainModel.html)
+ * Eventually use the [Mikado Method](https://www.methodsandtools.com/archive/mikado.php) or a phase of [Exploratory Refactoring](https://understandlegacycode.com/blog/demine-codebase-with-exploratory-refactoring/)
  * Eventually apply the [Tell! Don't ask!](https://kata-log.rocks/tell-dont-ask) constraint
  * Eventually apply the [Object Calisthenics](https://williamdurand.fr/2013/06/03/object-calisthenics/) rules
+
+A kanban, to follow all the refactoring steps you identify, is higly recommended
 
 Original: [Gabriele Tondi's version](https://github.com/racingDeveloper/tell-dont-ask-kata)
 
