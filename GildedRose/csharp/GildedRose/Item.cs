@@ -10,5 +10,10 @@
         {
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
         }
+
+        public bool IsExpired()
+        {
+            return SellIn < 0;
+        }
     }
 }
