@@ -21,6 +21,7 @@ public class OrderApprovalUseCaseTest
     [Fact]
     public void ApprovedExistingOrder()
     {
+        // Todo: Make a builder to generate an order with a specific state
         var initialOrder = new Order
         {
             Status = OrderStatus.Created,
