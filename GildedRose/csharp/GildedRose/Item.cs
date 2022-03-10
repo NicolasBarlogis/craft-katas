@@ -15,5 +15,21 @@
         {
             return SellIn < 0;
         }
+
+        public void IncrementQuality()
+        {
+            if (Quality < 50)
+            {
+                Quality += 1;
+            }
+        }
+
+        public void DecrementQuality()
+        {
+            if (Quality > 0)
+            {
+                Quality -= 1;
+            }
+        }
     }
 }
