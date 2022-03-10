@@ -18,14 +18,7 @@ namespace OrderShipping.UseCase
 
         public void Run(SellItemsRequest request)
         {
-            var order = new Order
-            {
-                Status = OrderStatus.Created,
-                Items = new List<OrderItem>(),
-                Currency = "EUR",
-                Total = 0m,
-                Tax = 0m
-            };
+            Order order = InitOrder();
 
             foreach (var itemRequest in request.Requests)
             {
@@ -37,25 +30,41 @@ namespace OrderShipping.UseCase
                 }
                 else
                 {
-                    var unitaryTax = Round((product.Price / 100m) * product.Category.TaxPercentage);
-                    var unitaryTaxedAmount = Round(product.Price + unitaryTax);
-                    var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
-                    var taxAmount = Round(unitaryTax * itemRequest.Quantity);
-
-                    var orderItem = new OrderItem
-                    {
-                        Product = product,
-                        Quantity = itemRequest.Quantity,
-                        Tax = taxAmount,
-                        TaxedAmount = taxedAmount
-                    };
-                    order.Items.Add(orderItem);
-                    order.Total += taxedAmount;
-                    order.Tax += taxAmount;
+                    CalculOrder(ref order, itemRequest, product);
                 }
             }
 
             _orderRepository.Save(order);
+        }
+
+        private void CalculOrder(ref Order order, SellItemRequest itemRequest, Product product)
+        {
+            var unitaryTax = Round((product.Price / 100m) * product.Category.TaxPercentage);
+            var unitaryTaxedAmount = Round(product.Price + unitaryTax);
+            var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
+            var taxAmount = Round(unitaryTax * itemRequest.Quantity);
+
+            var orderItem = new OrderItem
+            {
+                Product = product,
+                Quantity = itemRequest.Quantity,
+                Tax = taxAmount,
+                TaxedAmount = taxedAmount
+            };
+
+            order.AddItem(orderItem);
+        }
+
+        private Order InitOrder()
+        {
+            return new Order
+            {
+                Status = OrderStatus.Created,
+                Items = new List<OrderItem>(),
+                Currency = "EUR",
+                Total = 0m,
+                Tax = 0m
+            };
         }
 
         private static decimal Round(decimal amount)

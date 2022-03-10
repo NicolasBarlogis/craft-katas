@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderShipping", "Order Shipping\OrderShipping.csproj", "{E8EDAA2B-24C8-41B2-AB45-86D89A5688FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderShippingTest", "Order_Shipping_Test\OrderShippingTest.csproj", "{BDBEA039-558F-4E47-BD05-D7DAB781006A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderShippingTest", "Order_Shipping_Test\OrderShippingTest.csproj", "{BDBEA039-558F-4E47-BD05-D7DAB781006A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

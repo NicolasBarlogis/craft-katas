@@ -8,5 +8,12 @@
         public decimal Tax { get; set; }
         public OrderStatus Status { get; set; }
         public int Id { get; set; }
+
+        public void AddItem(OrderItem orderItem)
+        {
+            Items.Add(orderItem);
+            Total += orderItem.TaxedAmount;
+            Tax += orderItem.Tax;
+        }
     }
 }
