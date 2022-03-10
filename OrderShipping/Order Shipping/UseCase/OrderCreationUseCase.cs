@@ -35,7 +35,8 @@ namespace OrderShipping.UseCase
                 {
                     throw new UnknownProductException();
                 }
-                else
+
+                else // TODO: remove else 
                 {
                     var unitaryTax = Round((product.Price / 100m) * product.Category.TaxPercentage);
                     var unitaryTaxedAmount = Round(product.Price + unitaryTax);
@@ -58,6 +59,7 @@ namespace OrderShipping.UseCase
             _orderRepository.Save(order);
         }
 
+        // TODO: Move to an other file  
         private static decimal Round(decimal amount)
         {
             return decimal.Round(amount, 2, System.MidpointRounding.ToPositiveInfinity);

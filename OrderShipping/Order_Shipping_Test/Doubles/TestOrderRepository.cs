@@ -20,7 +20,6 @@ namespace OrderShippingTest.Doubles
             return _orders.FirstOrDefault(o => o.Id == orderId);
         }
 
-
         public Order GetSavedOrder()
         {
             return _insertedOrder;
