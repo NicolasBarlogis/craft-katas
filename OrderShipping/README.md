@@ -11,4 +11,5 @@ C# updated template (.Net 6).
 ## How To
 You have to take the responsability of an application where the former developers first experimented the clean architecture.
 [![Clean architecture schema from cleancoder](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
 This application being responsible of many bugs, you are tasked with refactoring it to make it more maintainable and reliable
