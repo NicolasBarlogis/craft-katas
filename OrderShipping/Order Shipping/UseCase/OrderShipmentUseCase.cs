@@ -1,5 +1,4 @@
-﻿using OrderShipping.Domain;
-using OrderShipping.Repository;
+﻿using OrderShipping.Repository;
 using OrderShipping.Service;
 
 namespace OrderShipping.UseCase
@@ -20,10 +19,10 @@ namespace OrderShipping.UseCase
         public void Run(OrderShipmentRequest request)
         {
             var order = _orderRepository.GetById(request.OrderId);
+
             order.Ship(_shipmentService);
+            
             _orderRepository.Save(order);
         }
-
-
     }
 }

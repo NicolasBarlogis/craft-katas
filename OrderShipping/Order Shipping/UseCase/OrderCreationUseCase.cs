@@ -18,6 +18,7 @@ namespace OrderShipping.UseCase
 
         public void Run(SellItemsRequest request)
         {
+            // Todo : Make a builder
             var order = new Order
             {
                 Status = OrderStatus.Created,
@@ -29,15 +30,22 @@ namespace OrderShipping.UseCase
 
             foreach (var itemRequest in request.Requests)
             {
+                /*
+                * Todo: GetByNames with multiple names can be better for optimization
+                * Todo: Change GetByName definition for nullable.
+                */
                 var product = _productCatalog.GetByName(itemRequest.ProductName);
-
                 if (product == null)
                 {
                     throw new UnknownProductException();
                 }
 
-                else // TODO: remove else 
+                else // Todo: remove else 
                 {
+                    /*
+                     * Todo: Add unitaryTax & tax inside Product object
+                     * Todo: Add Tax and Taxed Amount inside OrderItem object
+                     */
                     var unitaryTax = Round((product.Price / 100m) * product.Category.TaxPercentage);
                     var unitaryTaxedAmount = Round(product.Price + unitaryTax);
                     var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
