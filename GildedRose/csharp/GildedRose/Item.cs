@@ -31,5 +31,56 @@
                 Quality -= 1;
             }
         }
+
+        public void DecrementSellIn()
+        {
+            SellIn -= 1;
+        }
+
+        public virtual void UpdateQuality()
+        {
+            switch (Name)
+            {
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    {
+                        IncrementQuality();
+
+                        if (SellIn < 11)
+                        {
+                            IncrementQuality();
+                        }
+
+                        if (SellIn < 6)
+                        {
+                            IncrementQuality();
+                        }
+
+                        DecrementSellIn();
+
+                        if (IsExpired())
+                        {
+                            Quality = 0;
+                        }
+
+                        break;
+                    }
+                case "Sulfuras, Hand of Ragnaros":
+                    {
+                        break;
+                    }
+                default:
+                    {
+                        DecrementQuality();
+
+                        DecrementSellIn();
+
+                        if (IsExpired())
+                        {
+                            DecrementQuality();
+                        }
+                        break;
+                    }
+            }
+        }
     }
 }
