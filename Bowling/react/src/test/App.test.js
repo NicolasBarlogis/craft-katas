@@ -19,7 +19,7 @@ describe('The App renders correctly', () => {
     const wrapper = setup();
     expect(wrapper.find(ScoreBoard)).toBeDefined();
   });
-}
+});
 
 function setup() {
   return shallow(<App />);
