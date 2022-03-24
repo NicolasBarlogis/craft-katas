@@ -11,7 +11,7 @@
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
         }
 
-        public bool IsExpired()
+        public virtual bool IsExpired()
         {
             return SellIn < 0;
         }
@@ -41,10 +41,11 @@
         {
             switch (Name)
             {
-                case "Sulfuras, Hand of Ragnaros":
-                    {
-                        break;
-                    }
+                
+                // case "Sulfuras, Hand of Ragnaros":
+                //     {
+                //         break;
+                //     }
                 default:
                     {
                         DecrementQuality();
