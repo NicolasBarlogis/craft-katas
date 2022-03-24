@@ -24,7 +24,7 @@
             }
         }
 
-        public void DecrementQuality()
+        public virtual void DecrementQuality()
         {
             if (Quality > 0)
             {

@@ -44,23 +44,3 @@ public class SulfurasTests
         Assert.False(isExpired);
     }
 }
-
-public class Sulfuras : Item
-{
-    public new int Quality => 80;
-    
-    public Sulfuras()
-    {
-        SellIn = -1;
-        Name = "Sulfuras, Hand of Ragnaros";
-    }
-
-    public override void UpdateQuality()
-    {
-    }
-
-    public override bool IsExpired()
-    {
-        return false;
-    }
-}
