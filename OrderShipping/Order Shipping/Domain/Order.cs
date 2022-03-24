@@ -27,5 +27,13 @@ namespace OrderShipping.Domain
 
             Status = OrderStatus.Shipped;
         }
+
+        public void AddOrderItem(OrderItem orderItem)
+        {
+            Total += orderItem.TaxedAmount;
+            Tax += orderItem.Tax;
+
+            Items.Add(orderItem);
+        }
     }
 }
