@@ -2,6 +2,7 @@
 using System.Linq;
 using OrderShipping.Domain;
 using OrderShipping.Repository;
+using OrderShipping.UseCase;
 
 namespace OrderShippingTest.Doubles
 {
@@ -16,7 +17,13 @@ namespace OrderShippingTest.Doubles
 
         public Product GetByName(string name)
         {
-            return _products.FirstOrDefault(p => p.Name == name);
+            var product = _products.FirstOrDefault(p => p.Name == name);
+            if (product == null)
+            {
+                throw new UnknownProductException();
+            }
+
+            return product;
         }
     }
 }

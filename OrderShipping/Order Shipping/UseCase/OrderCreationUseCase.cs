@@ -27,13 +27,8 @@ namespace OrderShipping.UseCase
                 * Todo: Change GetByName definition for nullable.
                 */
                 var product = _productCatalog.GetByName(itemRequest.ProductName);
-                if (product == null)
-                {
-                    throw new UnknownProductException();
-                }
-
+                
                 var orderItem = new OrderItem(product, itemRequest.Quantity);
-
                 order.AddOrderItem(orderItem);
             }
 
