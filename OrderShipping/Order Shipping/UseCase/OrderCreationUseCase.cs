@@ -18,15 +18,7 @@ namespace OrderShipping.UseCase
 
         public void Run(SellItemsRequest request)
         {
-            // Todo : Make a builder
-            var order = new Order
-            {
-                Status = OrderStatus.Created,
-                Items = new List<OrderItem>(),
-                Currency = "EUR",
-                Total = 0m,
-                Tax = 0m
-            };
+            var order = new Order();
 
             foreach (var itemRequest in request.Requests)
             {

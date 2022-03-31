@@ -11,6 +11,15 @@ namespace OrderShipping.Domain
         public OrderStatus Status { get; set; }
         public int Id { get; set; }
 
+        public Order()
+        {
+            Status = OrderStatus.Created;
+            Items = new List<OrderItem>();
+            Currency = "EUR";
+            Total = 0m;
+            Tax = 0m;
+        }
+
         public void Ship(IShipmentService shipmentService)
         {
             if (Status == OrderStatus.Created || Status == OrderStatus.Rejected)
