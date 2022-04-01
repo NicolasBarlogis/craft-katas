@@ -30,7 +30,7 @@ namespace OrderShipping.UseCase
             foreach (var itemRequest in request.Requests)
             {
                 var product = _productCatalog.GetByName(itemRequest.ProductName);
-                var unitaryTax = Round((product.Price / 100m) * product.Category.TaxPercentage);
+                var unitaryTax = product.GetUnitaryTax();
                 var unitaryTaxedAmount = Round(product.Price + unitaryTax);
                 var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
                 var taxAmount = Round(unitaryTax * itemRequest.Quantity);
