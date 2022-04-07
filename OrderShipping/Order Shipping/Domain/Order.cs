@@ -38,9 +38,25 @@ namespace OrderShipping.Domain
             Status = OrderStatus.Shipped;
         }
 
-        internal void Approving(OrderApprovalRequest request)
+        //Todo: renommer la methode qui peut setter le status à Approved OU Rejected
+        internal void Approving(bool approved)
         {
-            Status = request.Approved ? OrderStatus.Approved : OrderStatus.Rejected;
+            if (Status == OrderStatus.Shipped)
+            {
+                throw new ShippedOrdersCannotBeChangedException();
+            }
+
+            if (approved && Status == OrderStatus.Rejected)
+            {
+                throw new RejectedOrderCannotBeApprovedException();
+            }
+
+            if (!approved && Status == OrderStatus.Approved)
+            {
+                throw new ApprovedOrderCannotBeRejectedException();
+            }
+
+            Status = approved ? OrderStatus.Approved : OrderStatus.Rejected;
         }
 
         public void AddOrderItem(OrderItem orderItem)
