@@ -24,7 +24,6 @@ namespace OrderShipping.UseCase
             {
                 /*
                 * Todo: GetByNames with multiple names can be better for optimization
-                * Todo: Change GetByName definition for nullable.
                 */
                 var product = _productCatalog.GetByName(itemRequest.ProductName);
                 

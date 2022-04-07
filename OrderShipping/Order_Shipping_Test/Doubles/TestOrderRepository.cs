@@ -2,6 +2,7 @@
 using System.Linq;
 using OrderShipping.Domain;
 using OrderShipping.Repository;
+using OrderShipping.UseCase;
 
 namespace OrderShippingTest.Doubles
 {
@@ -17,7 +18,11 @@ namespace OrderShippingTest.Doubles
 
         public Order GetById(int orderId)
         {
-            return _orders.FirstOrDefault(o => o.Id == orderId);
+            var order = _orders.FirstOrDefault(o => o.Id == orderId);
+            if (order == null) throw new UnknownOrderException();
+
+            return order;
+
         }
 
         public Order GetSavedOrder()
