@@ -30,7 +30,9 @@ namespace OrderShipping.UseCase
                 throw new ApprovedOrderCannotBeRejectedException();
             }
 
-            order.Status = request.Approved ? OrderStatus.Approved : OrderStatus.Rejected;
+            order.Approving(request);
+
+
             _orderRepository.Save(order);
         }
     }

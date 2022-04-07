@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using OrderShipping.Domain;
+﻿using OrderShipping.Domain;
 using OrderShipping.Repository;
 using OrderShipping.UseCase;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OrderShippingTest.Doubles
 {
@@ -19,10 +19,12 @@ namespace OrderShippingTest.Doubles
         public Order GetById(int orderId)
         {
             var order = _orders.FirstOrDefault(o => o.Id == orderId);
-            if (order == null) throw new UnknownOrderException();
+            if (order == null)
+            {
+                throw new UnknownOrderException();
+            }
 
             return order;
-
         }
 
         public Order GetSavedOrder()

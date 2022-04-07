@@ -1,4 +1,5 @@
 ﻿using OrderShipping.Service;
+using OrderShipping.UseCase;
 
 namespace OrderShipping.Domain
 {
@@ -35,6 +36,11 @@ namespace OrderShipping.Domain
             shipmentService.Ship(this);
 
             Status = OrderStatus.Shipped;
+        }
+
+        internal void Approving(OrderApprovalRequest request)
+        {
+            Status = request.Approved ? OrderStatus.Approved : OrderStatus.Rejected;
         }
 
         public void AddOrderItem(OrderItem orderItem)
