@@ -14,7 +14,14 @@ namespace OrderShipping.UseCase
         {
             var order = _orderRepository.GetById(request.OrderId);
 
-            order.Approving(request.Approved);
+            if (request.Approved)
+            {
+                order.Approving();
+            }
+            else
+            {
+                order.Rejecting();
+            }
 
             _orderRepository.Save(order);
         }
