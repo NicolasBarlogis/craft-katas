@@ -1,5 +1,5 @@
-﻿using OrderShipping.Service;
-using OrderShipping.UseCase;
+﻿using OrderShipping.Domain.Exceptions;
+using OrderShipping.Service;
 
 namespace OrderShipping.Domain
 {
@@ -21,6 +21,7 @@ namespace OrderShipping.Domain
             Tax = 0m;
         }
 
+        //Todo: Unit tests
         public void Ship(IShipmentService shipmentService)
         {
             if (Status == OrderStatus.Created || Status == OrderStatus.Rejected)
@@ -37,8 +38,8 @@ namespace OrderShipping.Domain
 
             Status = OrderStatus.Shipped;
         }
-
-        //Todo: renommer la methode qui peut setter le status à Approved OU Rejected
+        
+        //Todo: Unit tests
         internal void Approving()
         {
             if (Status == OrderStatus.Shipped)
@@ -54,6 +55,7 @@ namespace OrderShipping.Domain
             Status = OrderStatus.Approved;
         }
 
+        //Todo: Unit tests
         internal void Rejecting()
         {
             if (Status == OrderStatus.Shipped)
@@ -69,6 +71,7 @@ namespace OrderShipping.Domain
             Status = OrderStatus.Rejected;
         }
 
+        //Todo: Unit tests
         public void AddOrderItem(OrderItem orderItem)
         {
             Total += orderItem.TaxedAmount;

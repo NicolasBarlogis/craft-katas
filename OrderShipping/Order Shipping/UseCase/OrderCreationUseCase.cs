@@ -3,6 +3,7 @@ using OrderShipping.Repository;
 
 namespace OrderShipping.UseCase
 {
+    // Todo: Move repository & product catalog to domain 
     public class OrderCreationUseCase
     {
         private readonly IOrderRepository _orderRepository;
@@ -22,9 +23,6 @@ namespace OrderShipping.UseCase
 
             foreach (var itemRequest in request.Requests)
             {
-                /*
-                * Todo: GetByNames with multiple names can be better for optimization
-                */
                 var product = _productCatalog.GetByName(itemRequest.ProductName);
                 
                 var orderItem = new OrderItem(product, itemRequest.Quantity);

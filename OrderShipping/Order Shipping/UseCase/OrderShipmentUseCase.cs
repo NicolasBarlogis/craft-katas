@@ -3,6 +3,7 @@ using OrderShipping.Service;
 
 namespace OrderShipping.UseCase
 {
+    // Todo: Move repository & services to domain 
     public class OrderShipmentUseCase
     {
         private readonly IOrderRepository _orderRepository;

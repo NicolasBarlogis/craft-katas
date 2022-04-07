@@ -2,9 +2,11 @@
 
 namespace OrderShipping.UseCase
 {
+    // Todo: Move repository to domain 
     public class OrderApprovalUseCase
     {
         private readonly IOrderRepository _orderRepository;
+
         public OrderApprovalUseCase(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
