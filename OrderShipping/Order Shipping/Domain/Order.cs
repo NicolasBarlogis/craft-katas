@@ -59,6 +59,21 @@ namespace OrderShipping.Domain
             Status = approved ? OrderStatus.Approved : OrderStatus.Rejected;
         }
 
+        internal void Rejecting()
+        {
+            if (Status == OrderStatus.Shipped)
+            {
+                throw new ShippedOrdersCannotBeChangedException();
+            }
+
+            if (Status == OrderStatus.Approved)
+            {
+                throw new ApprovedOrderCannotBeRejectedException();
+            }
+
+            Status = OrderStatus.Rejected;
+        }
+
         public void AddOrderItem(OrderItem orderItem)
         {
             Total += orderItem.TaxedAmount;
