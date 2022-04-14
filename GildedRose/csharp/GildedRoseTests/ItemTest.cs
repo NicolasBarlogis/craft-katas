@@ -105,5 +105,21 @@ namespace GildedRoseTests
             //Assert
             Assert.False(isExpired);
         }
+
+        [Fact]
+        public void WhenItemIsConjured_ItsQualityShouldDecreaseTwiceAsFastAsNormalItems()
+        {
+            // Arrange
+            Item conjuredItem = new ConjuredItem
+            {
+                Quality = 4
+            };
+
+            // Act
+            conjuredItem.DecrementQuality();
+
+            // Assert
+            Assert.Equal(2, conjuredItem.Quality);
+        }
     }
 }
