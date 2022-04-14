@@ -1,6 +1,5 @@
-﻿using OrderShipping.Domain;
-
-namespace OrderShipping.Service
+﻿
+namespace OrderShipping.Domain.Service
 {
     public interface IShipmentService
     {

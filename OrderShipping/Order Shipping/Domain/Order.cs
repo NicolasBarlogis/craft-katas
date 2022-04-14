@@ -1,5 +1,5 @@
 ﻿using OrderShipping.Domain.Exceptions;
-using OrderShipping.Service;
+using OrderShipping.Domain.Service;
 
 namespace OrderShipping.Domain
 {

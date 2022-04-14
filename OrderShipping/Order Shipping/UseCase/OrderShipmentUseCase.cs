@@ -1,5 +1,5 @@
 ﻿using OrderShipping.Repository;
-using OrderShipping.Service;
+using OrderShipping.Domain.Service;
 
 namespace OrderShipping.UseCase
 {
