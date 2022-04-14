@@ -14,15 +14,15 @@ public class GildedRoseTest
                 serializerSettings.DefaultValueHandling = DefaultValueHandling.Include));
     }
 
-    [Fact]
-    public Task foo()
-    {
-        StringBuilder sb = new();
-        using StringWriter stream = new(sb);
-
-        Console.SetOut(stream);
-        Program.Main(Array.Empty<string>());
-
-        return Verify(sb.ToString());
-    }
+    // [Fact]
+    // public Task GoldenMaster_Main()
+    // {
+    //     StringBuilder sb = new();
+    //     using StringWriter stream = new(sb);
+    //
+    //     Console.SetOut(stream);
+    //     Program.Main(Array.Empty<string>());
+    //
+    //     return Verify(sb.ToString());
+    // }
 }

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace GildedRoseTests
 {
+
     public class ItemTest
     {
+        private readonly ConjuredItemTest _conjuredItemTest = new ConjuredItemTest();
 
         [Fact]
         public void WhenQualityNotAtMax_ShouldIncrementIt()
@@ -106,20 +108,5 @@ namespace GildedRoseTests
             Assert.False(isExpired);
         }
 
-        [Fact]
-        public void WhenItemIsConjured_ItsQualityShouldDecreaseTwiceAsFastAsNormalItems()
-        {
-            // Arrange
-            Item conjuredItem = new ConjuredItem
-            {
-                Quality = 4
-            };
-
-            // Act
-            conjuredItem.DecrementQuality();
-
-            // Assert
-            Assert.Equal(2, conjuredItem.Quality);
-        }
     }
 }
