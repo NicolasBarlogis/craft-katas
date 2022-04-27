@@ -3,7 +3,6 @@ import App from "../App";
 import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import ScoreBoard from "../ScoreBoard";
-import RollButtons from "../RollButtons";
 import Game from "../domain/Game";
 import { expect as expectChai } from 'chai';
 
@@ -30,6 +29,16 @@ it("A game should have 10 rounds", () => {
 
   //Assert
   expectChai(game.rounds).to.have.lengthOf(10);
+});
+
+it("A perfect game score should be 300 points", () => {
+  //Arrange
+  const game = new Game();
+
+  //Act
+
+  //Assert
+  expectChai(game.totalScore).to.be(300);
 });
 
 function setup() {
