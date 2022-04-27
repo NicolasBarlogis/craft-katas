@@ -4,6 +4,8 @@ import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import ScoreBoard from "../ScoreBoard";
 import RollButtons from "../RollButtons";
+import Game from "../domain/Game";
+import { expect as expectChai } from 'chai';
 
 beforeAll(() => {
   Enzyme.configure({ adapter: new Adapter() });
@@ -27,7 +29,7 @@ it("A game should have 10 rounds", () => {
   //Act
 
   //Assert
-  expect(game.rounds).to.have.lengthOf(10);
+  expectChai(game.rounds).to.have.lengthOf(10);
 });
 
 function setup() {
