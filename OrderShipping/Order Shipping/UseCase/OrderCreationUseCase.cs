@@ -1,5 +1,6 @@
 ﻿using OrderShipping.Domain;
 using OrderShipping.Repository;
+using System.Collections.Generic;
 
 namespace OrderShipping.UseCase
 {
@@ -18,7 +19,7 @@ namespace OrderShipping.UseCase
 
         public void Run(SellItemsRequest request)
         {
-            Order order = InitOrder();
+            var order = new Order();
 
             foreach (var itemRequest in request.Requests)
             {
@@ -54,19 +55,7 @@ namespace OrderShipping.UseCase
 
             order.AddItem(orderItem);
         }
-
-        private Order InitOrder()
-        {
-            return new Order
-            {
-                Status = OrderStatus.Created,
-                Items = new List<OrderItem>(),
-                Currency = "EUR",
-                Total = 0m,
-                Tax = 0m
-            };
-        }
-
+               
         private static decimal Round(decimal amount)
         {
             return decimal.Round(amount, 2, System.MidpointRounding.ToPositiveInfinity);
