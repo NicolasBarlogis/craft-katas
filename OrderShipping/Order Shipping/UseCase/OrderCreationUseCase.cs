@@ -30,23 +30,13 @@ namespace OrderShipping.UseCase
             foreach (var itemRequest in request.Requests)
             {
                 var product = _productCatalog.GetByName(itemRequest.ProductName);
-                var unitaryTax = product.GetUnitaryTax();
-                var unitaryTaxedAmount = Round(product.Price + unitaryTax);
-                var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
-                var taxAmount = Round(unitaryTax * itemRequest.Quantity);
 
                 var orderItem = new OrderItem(product, itemRequest.Quantity);
-                order.Items.Add(orderItem);
-                order.Total += taxedAmount;
-                order.Tax += taxAmount;
+ 
+                order.AddItems(orderItem);
             }
 
             _orderRepository.Save(order);
-        }
-
-        private static decimal Round(decimal amount)
-        {
-            return decimal.Round(amount, 2, System.MidpointRounding.ToPositiveInfinity);
         }
     }
 }
