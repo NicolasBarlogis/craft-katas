@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OrderShipping.Domain
+﻿namespace OrderShipping.Domain
 {
     public class Order
     {

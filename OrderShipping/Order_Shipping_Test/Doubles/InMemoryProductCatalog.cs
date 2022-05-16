@@ -14,7 +14,7 @@ namespace OrderShippingTest.Doubles
             _products = products;
         }
 
-        public Product GetByName(string name)
+        public Product? GetByName(string name)
         {
             return _products.FirstOrDefault(p => p.Name == name);
         }

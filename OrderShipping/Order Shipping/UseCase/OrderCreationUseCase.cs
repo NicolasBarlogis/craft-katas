@@ -38,16 +38,14 @@ namespace OrderShipping.UseCase
             _orderRepository.Save(order);
         }
 
-        private void CalculOrder(ref Order order, SellItemRequest itemRequest, Product product)
-        {            
-            var unitaryTaxedAmount = Round(product.Price + product.Tax());
+        private static void CalculOrder(ref Order order, SellItemRequest itemRequest, Product product)
+        {
+            var unitaryTaxedAmount = product.Taxed();
             var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
             var taxAmount = Round(product.Tax() * itemRequest.Quantity);
 
-            var orderItem = new OrderItem
+            var orderItem = new OrderItem(product, itemRequest.Quantity)
             {
-                Product = product,
-                Quantity = itemRequest.Quantity,
                 Tax = taxAmount,
                 TaxedAmount = taxedAmount
             };
