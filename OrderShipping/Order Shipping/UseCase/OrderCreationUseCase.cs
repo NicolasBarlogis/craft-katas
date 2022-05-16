@@ -39,11 +39,10 @@ namespace OrderShipping.UseCase
         }
 
         private void CalculOrder(ref Order order, SellItemRequest itemRequest, Product product)
-        {
-            var unitaryTax = Round((product.Price / 100m) * product.Category.TaxPercentage);
-            var unitaryTaxedAmount = Round(product.Price + unitaryTax);
+        {            
+            var unitaryTaxedAmount = Round(product.Price + product.Tax());
             var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
-            var taxAmount = Round(unitaryTax * itemRequest.Quantity);
+            var taxAmount = Round(product.Tax() * itemRequest.Quantity);
 
             var orderItem = new OrderItem
             {
