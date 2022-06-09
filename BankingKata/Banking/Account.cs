@@ -19,6 +19,11 @@ namespace Banking
 
         public void Withdraw(float amountToWithdraw)
         {
+            _balance = _balance - amountToWithdraw;
+        }
+
+        public object GetStatement()
+        {
             throw new NotImplementedException();
         }
     }
