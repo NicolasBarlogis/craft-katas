@@ -38,6 +38,21 @@ namespace Banking.Tests.Unit
             var balance = account.GetBalance();
             balance.Should().Be(amount+amount2);
         }
+
+        [Fact]
+        public void WhenWithdrawMoneyOnEmptyAccount_ThenTheBalanceIsCorrect()
+        {
+            //Arrange
+            float amountToWithdraw = 500;
+            var account = new Account();
+
+            //Act
+            account.Withdraw(amountToWithdraw);
+
+            //Assert
+            var balance = account.GetBalance();
+            balance.Should().Be(-amountToWithdraw);
+        }
     }
 
 }

@@ -9,12 +9,17 @@ namespace Banking
 
         public void Deposit(float amount)
         {
-            _balance = amount;
+            _balance = _balance + amount;
         }
 
         public float GetBalance()
         {
             return _balance;
+        }
+
+        public void Withdraw(float amountToWithdraw)
+        {
+            throw new NotImplementedException();
         }
     }
 
