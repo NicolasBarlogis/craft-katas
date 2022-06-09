@@ -5,14 +5,16 @@ namespace Banking
 
     public class Account
     {
+        private float _balance;
+
         public void Deposit(float amount)
         {
-            throw new NotImplementedException();
+            _balance = amount;
         }
 
-        public object GetBalance()
+        public float GetBalance()
         {
-            throw new NotImplementedException();
+            return _balance;
         }
     }
 
