@@ -1,6 +1,5 @@
 ﻿using OrderShipping.Domain;
 using OrderShipping.Repository;
-using System.Collections.Generic;
 
 namespace OrderShipping.UseCase
 {
@@ -9,9 +8,7 @@ namespace OrderShipping.UseCase
         private readonly IOrderRepository _orderRepository;
         private readonly IProductCatalog _productCatalog;
 
-        public OrderCreationUseCase(
-            IOrderRepository orderRepository,
-            IProductCatalog productCatalog)
+        public OrderCreationUseCase(IOrderRepository orderRepository, IProductCatalog productCatalog)
         {
             _orderRepository = orderRepository;
             _productCatalog = productCatalog;
