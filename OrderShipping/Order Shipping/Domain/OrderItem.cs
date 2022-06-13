@@ -11,11 +11,8 @@
         {
             Product = product;
             Quantity = quantity;
-        }
-
-        public decimal Taxed()
-        {
-            return Round(Product.Taxed() * Quantity);
+            TaxedAmount = Round(Product.Taxed() * Quantity);
+            Tax = Round(Product.Tax() * Quantity);
         }
 
         private static decimal Round(decimal amount)

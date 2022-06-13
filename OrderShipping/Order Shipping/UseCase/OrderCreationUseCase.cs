@@ -29,33 +29,12 @@ namespace OrderShipping.UseCase
                 {
                     throw new UnknownProductException();
                 }
-                else
-                {
-                    CalculOrder(ref order, itemRequest, product);
-                }
+
+                var orderItem = new OrderItem(product, itemRequest.Quantity);
+                order.AddItem(orderItem);
             }
 
             _orderRepository.Save(order);
-        }
-
-        private static void CalculOrder(ref Order order, SellItemRequest itemRequest, Product product)
-        {
-            var unitaryTaxedAmount = product.Taxed();
-            var taxedAmount = Round(unitaryTaxedAmount * itemRequest.Quantity);
-            var taxAmount = Round(product.Tax() * itemRequest.Quantity);
-
-            var orderItem = new OrderItem(product, itemRequest.Quantity)
-            {
-                Tax = taxAmount,
-                TaxedAmount = taxedAmount
-            };
-
-            order.AddItem(orderItem);
-        }
-               
-        private static decimal Round(decimal amount)
-        {
-            return decimal.Round(amount, 2, System.MidpointRounding.ToPositiveInfinity);
         }
     }
 }
