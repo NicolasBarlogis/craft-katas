@@ -26,25 +26,25 @@ namespace OrderShipping.Domain
             Total += orderItem.TaxedAmount;
             Tax += orderItem.Tax;
         }
-
-        public void ApproveOrRejectOrder(Order order, bool isApproved)
+        
+        public void Approve()
         {
-            if (order.Status == OrderStatus.Shipped)
+            Status = Status switch
             {
-                throw new ShippedOrdersCannotBeChangedException();
-            }
+                OrderStatus.Shipped => throw new ShippedOrdersCannotBeChangedException(),
+                OrderStatus.Rejected => throw new RejectedOrderCannotBeApprovedException(),
+                _ => OrderStatus.Approved
+            };
+        }
 
-            if (isApproved && order.Status == OrderStatus.Rejected)
+        public void Reject()
+        {
+            Status = Status switch
             {
-                throw new RejectedOrderCannotBeApprovedException();
-            }
-
-            if (!isApproved && order.Status == OrderStatus.Approved)
-            {
-                throw new ApprovedOrderCannotBeRejectedException();
-            }
-
-            order.Status = isApproved ? OrderStatus.Approved : OrderStatus.Rejected;
+                OrderStatus.Shipped => throw new ShippedOrdersCannotBeChangedException(),
+                OrderStatus.Approved => throw new ApprovedOrderCannotBeRejectedException(),
+                _ => OrderStatus.Rejected
+            };
         }
     }
 }

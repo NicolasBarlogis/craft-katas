@@ -13,7 +13,15 @@ namespace OrderShipping.UseCase
         public void Run(OrderApprovalRequest request)
         {
             var order = _orderRepository.GetById(request.OrderId);
-            order.ApproveOrRejectOrder(order, request.Approved);
+
+            if (request.Approved)
+            {
+                order.Approve();
+            }
+            else
+            {
+                order.Reject();
+            }
 
             _orderRepository.Save(order);
         }
