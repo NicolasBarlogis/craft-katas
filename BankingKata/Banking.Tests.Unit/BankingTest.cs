@@ -138,6 +138,23 @@ namespace Banking.Tests.Unit
             withdrawStatement.Date.Should().Be(dateTimeWithdraw);
             withdrawStatement.Amount.Should().Be(amountToWithdraw);
         }
+        [Fact]
+        public void WhenGetStatementOnDepositOnFilledAccount_ThenStatementBalanceIsCorrect()
+        {
+            //Arrange
+            float amountToDeposit = 500;
+            var dateTimeDeposit = DateTime.Now;
+            var account = new Account(500);
+             
+            //Act
+            account.Deposit(amountToDeposit, dateTimeDeposit);
+            var statement = account.GetStatement();
+
+            //Assert
+            statement.Amount.Should().Be(amountToDeposit);
+            statement.Date.Should().Be(dateTimeDeposit);
+            statement.Balance.Should().Be(1000);
+        }
     }
 
 }
