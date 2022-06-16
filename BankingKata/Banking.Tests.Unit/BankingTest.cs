@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -12,10 +13,11 @@ namespace Banking.Tests.Unit
         {
             //Arrange
             float amount = 500;
+            var dateTimeDeposit = DateTime.Now;
             var account = new Account();
 
             //Act
-            account.Deposit(amount);
+            account.Deposit(amount, dateTimeDeposit);
 
             //Assert
             var balance = account.GetBalance();
@@ -28,12 +30,13 @@ namespace Banking.Tests.Unit
             //Arrange
             float amount = 500;
             float amount2 = 500;
-            
+            var dateTimeDeposit = DateTime.Now;
+
             var account = new Account();
 
             //Act
-            account.Deposit(amount);
-            account.Deposit(amount2);
+            account.Deposit(amount, dateTimeDeposit);
+            account.Deposit(amount2, dateTimeDeposit);
 
             //Assert
             var balance = account.GetBalance();
@@ -62,11 +65,12 @@ namespace Banking.Tests.Unit
             //Arrange
             float amountToDeposit = 1500;
             float amountToWithdraw = 500;
+            var dateTimeDeposit = DateTime.Now;
             var dateTimeWithDraw = DateTime.Now;
             var account = new Account();
 
             //Act
-            account.Deposit(amountToDeposit);
+            account.Deposit(amountToDeposit, dateTimeDeposit);
             account.Withdraw(amountToWithdraw, dateTimeWithDraw);
 
             //Assert
@@ -75,7 +79,7 @@ namespace Banking.Tests.Unit
         }
 
         [Fact]
-        public void WhenGetStatementOnFilledAccount_ThenStatementListIsCorrect()
+        public void WhenGetStatementOnWithdrawOnFilledAccount_ThenStatementListIsCorrect()
         {
             //Arrange
             float amountToWithdraw = 500;
@@ -90,6 +94,7 @@ namespace Banking.Tests.Unit
             statement.Amount.Should().Be(amountToWithdraw);
             statement.Date.Should().Be(dateTimeWithDraw);
         }
+
         [Fact]
         public void WhenGetStatementOnDepositOnFilledAccount_ThenStatementListIsCorrect()
         {
@@ -105,7 +110,33 @@ namespace Banking.Tests.Unit
             //Assert
             statement.Amount.Should().Be(amountToDeposit);
             statement.Date.Should().Be(dateTimeDeposit);
+        }
 
+        [Fact]
+        public void WhenGetStatementsOnFilledAccount_ThenStatementListIsCorrect()
+        {
+            //Arrange
+            float amountToDeposit = 500;
+            float amountToWithdraw = 100;
+            var dateTimeDeposit = DateTime.Now;
+            var dateTimeWithdraw = DateTime.Now.AddDays(1);
+            var account = new Account();
+
+            //Act
+            account.Deposit(amountToDeposit, dateTimeDeposit);
+            account.Withdraw(amountToWithdraw, dateTimeWithdraw);
+            var statements = account.GetStatements();
+
+            //Assert
+            statements.Should().HaveCount(2);
+
+            var depositStatement = statements.First();
+            depositStatement.Date.Should().Be(dateTimeDeposit);
+            depositStatement.Amount.Should().Be(amountToDeposit);
+
+            var withdrawStatement = statements.Last();
+            withdrawStatement.Date.Should().Be(dateTimeWithdraw);
+            withdrawStatement.Amount.Should().Be(amountToWithdraw);
         }
     }
 
