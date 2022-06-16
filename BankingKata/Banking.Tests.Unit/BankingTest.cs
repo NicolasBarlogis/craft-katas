@@ -64,6 +64,21 @@ namespace Banking.Tests.Unit
             //Assert
             balance.Should().Be(15);
         }
+
+        [Fact]
+        public void When_Deposit_30_And_Withdrawal_40_Then_Balance_Should_Be_Minus_10()
+        {
+            //Arr
+            var compte = new Account();
+
+            //Act
+            compte.Deposit(30);
+            compte.Withdrawal(40);
+            var balance = compte.Balance();
+
+            //Assert
+            balance.Should().Be(-10);
+        }
     }
 
 }

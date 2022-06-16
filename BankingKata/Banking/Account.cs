@@ -10,15 +10,16 @@
             balance += money;
         }
 
+        public void Withdrawal(float money)
+        {
+            balance -= money;
+        }
+
         public float Balance()
         {
             return balance;
         }
-
-        public void Withdrawal(float money)
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 
 }
