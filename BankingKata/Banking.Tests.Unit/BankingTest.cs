@@ -1,3 +1,4 @@
+using FluentAssertions;
 using System;
 using Xunit;
 
@@ -7,7 +8,7 @@ namespace Banking.Tests.Unit
     public class BankingTest
     {
         [Fact]
-        public void Test_Deposit_And_Withdrawl()
+        public void When_Deposit_15_Then_Balance_Should_Be_15()
         {
             //Arr
             var compte = new Account();
@@ -17,7 +18,7 @@ namespace Banking.Tests.Unit
             var balance = compte.balance();
 
             //Assert
-            Assert.Equal(15, balance);
+            balance.Should().Be(15);
             
         }
     }
