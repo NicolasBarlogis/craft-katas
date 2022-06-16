@@ -5,14 +5,13 @@ namespace Banking
 
     public class Account
     {
-        public void deposit(int v)
+        public void Deposit(int v)
         {
-            throw new NotImplementedException();
         }
 
-        public object balance()
+        public float Balance()
         {
-            throw new NotImplementedException();
+            return 15;
         }
     }
 

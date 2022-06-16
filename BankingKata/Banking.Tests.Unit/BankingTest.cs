@@ -14,8 +14,8 @@ namespace Banking.Tests.Unit
             var compte = new Account();
 
             //Act
-            compte.deposit(15);
-            var balance = compte.balance();
+            compte.Deposit(15);
+            var balance = compte.Balance();
 
             //Assert
             balance.Should().Be(15);
