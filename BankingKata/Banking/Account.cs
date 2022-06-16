@@ -5,13 +5,16 @@ namespace Banking
 
     public class Account
     {
-        public void Deposit(int v)
+        private float deposit;
+
+        public void Deposit(float money)
         {
+            deposit = money;
         }
 
         public float Balance()
         {
-            return 15;
+            return deposit;
         }
     }
 

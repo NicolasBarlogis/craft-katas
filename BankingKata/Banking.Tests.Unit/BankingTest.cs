@@ -34,6 +34,21 @@ namespace Banking.Tests.Unit
             //Assert
             balance.Should().Be(30);
         }
+
+        [Fact]
+        public void When_Two_Deposit_15_Then_Balance_Should_Be_30()
+        {
+            //Arr
+            var compte = new Account();
+
+            //Act
+            compte.Deposit(15);
+            compte.Deposit(15);
+            var balance = compte.Balance();
+
+            //Assert
+            balance.Should().Be(30);
+        }
     }
 
 }
