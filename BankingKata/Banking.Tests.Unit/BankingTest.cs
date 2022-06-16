@@ -79,40 +79,6 @@ namespace Banking.Tests.Unit
         }
 
         [Fact]
-        public void WhenGetStatementOnWithdrawOnFilledAccount_ThenStatementListIsCorrect()
-        {
-            //Arrange
-            float amountToWithdraw = 500;
-            var dateTimeWithDraw = DateTime.Now;
-            var account = new Account();
-
-            //Act
-            account.Withdraw(amountToWithdraw, dateTimeWithDraw);
-            var statement = account.GetStatement();
-
-            //Assert
-            statement.Amount.Should().Be(amountToWithdraw);
-            statement.Date.Should().Be(dateTimeWithDraw);
-        }
-
-        [Fact]
-        public void WhenGetStatementOnDepositOnFilledAccount_ThenStatementListIsCorrect()
-        {
-            //Arrange
-            float amountToDeposit = 500;
-            var dateTimeDeposit = DateTime.Now;
-            var account = new Account();
-
-            //Act
-            account.Deposit(amountToDeposit, dateTimeDeposit);
-            var statement = account.GetStatement();
-
-            //Assert
-            statement.Amount.Should().Be(amountToDeposit);
-            statement.Date.Should().Be(dateTimeDeposit);
-        }
-
-        [Fact]
         public void WhenGetStatementsOnFilledAccount_ThenStatementListIsCorrect()
         {
             //Arrange
@@ -138,8 +104,9 @@ namespace Banking.Tests.Unit
             withdrawStatement.Date.Should().Be(dateTimeWithdraw);
             withdrawStatement.Amount.Should().Be(amountToWithdraw);
         }
+
         [Fact]
-        public void WhenGetStatementOnDepositOnFilledAccount_ThenStatementBalanceIsCorrect()
+        public void WhenGetStatementOnDepositOnFilledAccount_ThenStatementIsCorrect()
         {
             //Arrange
             float amountToDeposit = 500;
@@ -155,6 +122,23 @@ namespace Banking.Tests.Unit
             statement.Date.Should().Be(dateTimeDeposit);
             statement.Balance.Should().Be(1000);
         }
-    }
 
+        [Fact]
+        public void WhenGetStatementOnWithdrawOnFilledAccount_ThenStatementIsCorrect()
+        {
+            //Arrange
+            float amountToWithdraw = 500;
+            var dateTimeWithdraw = DateTime.Now;
+            var account = new Account(500);
+
+            //Act
+            account.Withdraw(amountToWithdraw, dateTimeWithdraw);
+            var statement = account.GetStatement();
+
+            //Assert
+            statement.Amount.Should().Be(amountToWithdraw);
+            statement.Date.Should().Be(dateTimeWithdraw);
+            statement.Balance.Should().Be(1000);
+        }
+    }
 }

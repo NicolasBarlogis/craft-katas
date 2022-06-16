@@ -12,6 +12,7 @@ namespace Banking
         public Account() : this(0)
         {
         }
+
         public Account(float balance)
         {
             _balance = balance;
@@ -20,7 +21,7 @@ namespace Banking
         public void Deposit(float amount, DateTime statementDate)
         {
             _balance += amount;
-            _statements.Add(new Statement(amount, statementDate));
+            _statements.Add(new Statement(amount, _balance, statementDate));
         }
 
         public float GetBalance()

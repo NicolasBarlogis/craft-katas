@@ -14,6 +14,7 @@ namespace Banking
             Balance = balance;
             Date = date;
         }
+
         public Statement(float amount, DateTime date)
         {
             Amount = amount;
