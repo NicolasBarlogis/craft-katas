@@ -6,10 +6,15 @@ namespace Banking
     public class Account
     {
         private float _balance;
+        private Statement _statement;
 
         public void Deposit(float amount)
         {
             _balance = _balance + amount;
+        }
+        public void Deposit(float amount, DateTime statementDate)
+        {
+            throw new NotImplementedException();
         }
 
         public float GetBalance()
@@ -17,14 +22,15 @@ namespace Banking
             return _balance;
         }
 
-        public void Withdraw(float amountToWithdraw)
+        public void Withdraw(float amountToWithdraw, DateTime statementDate )
         {
             _balance = _balance - amountToWithdraw;
+            _statement = new Statement(amountToWithdraw,statementDate);
         }
 
-        public object GetStatement()
+        public Statement GetStatement()
         {
-            throw new NotImplementedException();
+            return _statement;
         }
     }
 

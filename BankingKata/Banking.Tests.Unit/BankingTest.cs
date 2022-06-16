@@ -45,10 +45,11 @@ namespace Banking.Tests.Unit
         {
             //Arrange
             float amountToWithdraw = 500;
+            var dateTimeWithDraw = DateTime.Now;
             var account = new Account();
 
             //Act
-            account.Withdraw(amountToWithdraw);
+            account.Withdraw(amountToWithdraw, dateTimeWithDraw);
 
             //Assert
             var balance = account.GetBalance();
@@ -61,11 +62,12 @@ namespace Banking.Tests.Unit
             //Arrange
             float amountToDeposit = 1500;
             float amountToWithdraw = 500;
+            var dateTimeWithDraw = DateTime.Now;
             var account = new Account();
 
             //Act
             account.Deposit(amountToDeposit);
-            account.Withdraw(amountToWithdraw);
+            account.Withdraw(amountToWithdraw, dateTimeWithDraw);
 
             //Assert
             var balance = account.GetBalance();
@@ -87,6 +89,23 @@ namespace Banking.Tests.Unit
             //Assert
             statement.Amount.Should().Be(amountToWithdraw);
             statement.Date.Should().Be(dateTimeWithDraw);
+        }
+        [Fact]
+        public void WhenGetStatementOnDepositOnFilledAccount_ThenStatementListIsCorrect()
+        {
+            //Arrange
+            float amountToDeposit = 500;
+            var dateTimeDeposit = DateTime.Now;
+            var account = new Account();
+
+            //Act
+            account.Deposit(amountToDeposit, dateTimeDeposit);
+            var statement = account.GetStatement();
+
+            //Assert
+            statement.Amount.Should().Be(amountToDeposit);
+            statement.Date.Should().Be(dateTimeDeposit);
+
         }
     }
 
