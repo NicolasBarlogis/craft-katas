@@ -1,20 +1,23 @@
-﻿using System;
-
-namespace Banking
+﻿namespace Banking
 {
 
     public class Account
     {
-        private float deposit;
+        private float balance;
 
         public void Deposit(float money)
         {
-            deposit = money;
+            balance += money;
         }
 
         public float Balance()
         {
-            return deposit;
+            return balance;
+        }
+
+        public void Withdrawal(float money)
+        {
+            throw new System.NotImplementedException();
         }
     }
 
