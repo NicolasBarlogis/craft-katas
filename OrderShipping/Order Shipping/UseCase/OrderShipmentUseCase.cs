@@ -19,12 +19,11 @@ namespace OrderShipping.UseCase
         {
             var order = _orderRepository.GetById(request.OrderId);
 
-            order.CannotShip();
-            order.CannotBeShippedTwice();
+            order.CheckCannotBeShiped();
 
             _shipmentService.Ship(order);
 
-            order.Status = OrderStatus.Shipped;
+            order.ShipOrder();
             _orderRepository.Save(order);
         }
     }

@@ -1,4 +1,4 @@
-﻿using OrderShipping.UseCase;
+﻿using OrderShipping.Domain.Exception;
 
 namespace OrderShipping.Domain
 {
@@ -47,20 +47,23 @@ namespace OrderShipping.Domain
             };
         }
 
-        public void CannotShip()
+        public void CheckCannotBeShiped()
         {
             if (Status is OrderStatus.Created or OrderStatus.Rejected)
             {
                 throw new OrderCannotBeShippedException();
             }
-        }
-
-        public void CannotBeShippedTwice()
-        {
-            if (Status == OrderStatus.Shipped)
+            else if(Status == OrderStatus.Shipped)
             {
                 throw new OrderCannotBeShippedTwiceException();
             }
+        }
+
+        public void ShipOrder()
+        {
+            CheckCannotBeShiped();
+
+            Status = OrderStatus.Shipped;
         }
     }
 }
