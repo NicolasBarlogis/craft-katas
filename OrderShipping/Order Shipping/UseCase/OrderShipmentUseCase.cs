@@ -9,9 +9,7 @@ namespace OrderShipping.UseCase
         private readonly IOrderRepository _orderRepository;
         private readonly IShipmentService _shipmentService;
 
-        public OrderShipmentUseCase(
-            IOrderRepository orderRepository,
-            IShipmentService shipmentService)
+        public OrderShipmentUseCase(IOrderRepository orderRepository, IShipmentService shipmentService)
         {
             _orderRepository = orderRepository;
             _shipmentService = shipmentService;
@@ -21,15 +19,8 @@ namespace OrderShipping.UseCase
         {
             var order = _orderRepository.GetById(request.OrderId);
 
-            if (order.Status == OrderStatus.Created || order.Status == OrderStatus.Rejected)
-            {
-                throw new OrderCannotBeShippedException();
-            }
-
-            if (order.Status == OrderStatus.Shipped)
-            {
-                throw new OrderCannotBeShippedTwiceException();
-            }
+            order.CannotShip();
+            order.CannotBeShippedTwice();
 
             _shipmentService.Ship(order);
 

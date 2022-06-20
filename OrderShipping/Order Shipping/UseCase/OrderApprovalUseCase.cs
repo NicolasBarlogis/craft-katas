@@ -5,6 +5,7 @@ namespace OrderShipping.UseCase
     public class OrderApprovalUseCase
     {
         private readonly IOrderRepository _orderRepository;
+
         public OrderApprovalUseCase(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;

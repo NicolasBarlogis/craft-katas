@@ -46,5 +46,21 @@ namespace OrderShipping.Domain
                 _ => OrderStatus.Rejected
             };
         }
+
+        public void CannotShip()
+        {
+            if (Status is OrderStatus.Created or OrderStatus.Rejected)
+            {
+                throw new OrderCannotBeShippedException();
+            }
+        }
+
+        public void CannotBeShippedTwice()
+        {
+            if (Status == OrderStatus.Shipped)
+            {
+                throw new OrderCannotBeShippedTwiceException();
+            }
+        }
     }
 }
