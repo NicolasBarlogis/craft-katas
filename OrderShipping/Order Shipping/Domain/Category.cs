@@ -1,8 +1,4 @@
 ﻿namespace OrderShipping.Domain
 {
-    public class Category
-    {
-        public string Name { get; set; }
-        public decimal TaxPercentage { get; set; }
-    }
+    public record Category(string Name, decimal TaxPercentage);
 }

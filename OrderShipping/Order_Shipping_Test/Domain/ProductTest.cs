@@ -13,11 +13,7 @@ public class ProductTest
     public void SaladShouldHaveACorrectTax()
     {
         // Arrange
-        var food = new Category
-        {
-            Name = "food",
-            TaxPercentage = 10m
-        };
+        var food = new Category("food", 10m);
 
         Product salad = new()
         {
@@ -34,11 +30,7 @@ public class ProductTest
     public void SaladShouldHaveACorrectTaxedAmount()
     {
         // Arrange
-        var food = new Category
-        {
-            Name = "food",
-            TaxPercentage = 10m
-        };
+        var food = new Category("food", 10m);
 
         Product salad = new()
         {
