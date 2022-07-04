@@ -12,6 +12,7 @@ namespace Order_Shipping.Domain
             {
                 throw new QuantityCantBeNegativeException();
             }
+
             Value = quantity;
         }
     }
