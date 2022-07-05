@@ -1,9 +1,18 @@
+import {Submarine} from "../src/Submarine";
 import {CommandBuilder} from "../src/CommandBuilder";
 import {Command} from "../src/Command";
-import { readFileSync } from 'fs';
+import {readFileSync} from 'fs';
 
-test('test', () => {
-	expect(0).toBe(0);
+test('1-New Submarine should have a correct starting position', () => {
+	// Given - Arrange
+	let submarine: Submarine = new Submarine();
+
+	// When - Act
+
+	
+	// Then - Assert
+	expect(submarine.depth).toBe(0);
+	expect(submarine.position).toBe(0);
 })
 
 function getCommandsFromCommandsFile(): Command[] {
