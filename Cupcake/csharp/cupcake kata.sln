@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cupcakes", "Cupcake\Cupcake
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CupcakeTest", "CupcakeTest\CupcakeTest.csproj", "{2A51ABFD-BF5A-40D0-B8A5-397BD4AC2317}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bundle", "Bundle\Bundle.csproj", "{B1FBFC44-7494-40E3-AACC-F5B43811FDC3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{2A51ABFD-BF5A-40D0-B8A5-397BD4AC2317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A51ABFD-BF5A-40D0-B8A5-397BD4AC2317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A51ABFD-BF5A-40D0-B8A5-397BD4AC2317}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1FBFC44-7494-40E3-AACC-F5B43811FDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1FBFC44-7494-40E3-AACC-F5B43811FDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1FBFC44-7494-40E3-AACC-F5B43811FDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1FBFC44-7494-40E3-AACC-F5B43811FDC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

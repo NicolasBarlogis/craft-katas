@@ -9,7 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Bundle\Bundle.csproj" />
     </ItemGroup>
 
 </Project>
