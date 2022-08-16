@@ -1,10 +1,8 @@
 ﻿namespace Cupcake;
-
-public class Cupcake
+public class Cookie
 {
-
     public override string ToString()
     {
-        return "🧁";
+        return "🍪";
     }
 }
