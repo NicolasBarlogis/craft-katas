@@ -1,16 +1,11 @@
 ﻿namespace Cupcakes;
 
-public class Cupcake
+public class Cupcake : Cake
 {
-    private readonly Chocolate? _chocolate;
-
-    public Cupcake(Chocolate? chocolate = null)
+    public Cupcake(Chocolate? chocolate = null) : base(chocolate)
     {
-        _chocolate = chocolate;
+        
     }
 
-    public override string ToString()
-    {
-        return _chocolate is null ? "🧁" : "🧁 with 🍫";
-    }
+    protected override string Logo => "🧁";
 }

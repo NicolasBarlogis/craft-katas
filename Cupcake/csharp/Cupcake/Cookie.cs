@@ -1,13 +1,12 @@
 ﻿namespace Cupcakes;
 
-public class Cookie
+public class Cookie : Cake
 {
-    public Cookie(Chocolate? chocolate = null)
+    public Cookie(Chocolate? chocolate = null) : base(chocolate)
     {
+
     }
 
-    public override string ToString()
-    {
-        return "🍪";
-    }
+    protected override string Logo => "🍪";
+    
 }
