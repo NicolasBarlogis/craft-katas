@@ -4,7 +4,7 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Cupcake</RootNamespace>
+        <RootNamespace>Cupcakes</RootNamespace>
         <LangVersion>10</LangVersion>
     </PropertyGroup>
 

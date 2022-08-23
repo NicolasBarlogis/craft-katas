@@ -1,4 +1,4 @@
-using Cupcake;
+using Cupcakes;
 using Xunit;
 
 namespace CupcakeTest
@@ -8,7 +8,7 @@ namespace CupcakeTest
         [Fact]
         public void Should_have_correct_name_When_cupcake_with_no_topping()
         {
-            Assert.Equal("🧁", (new Cupcake.Cupcake()).ToString());
+            Assert.Equal("🧁", (new Cupcake()).ToString());
         }
 
         [Fact]
@@ -20,12 +20,14 @@ namespace CupcakeTest
         [Fact]
         public void Should_have_correct_name_When_cupcake_with_chocolate()
         {
-            Assert.Equal("🧁 with 🍫", new Cupcake.Cupcake(new Chocolate()).ToString());
+            Assert.Equal("🧁 with 🍫", new Cupcake(new Chocolate()).ToString());
         }
-    }
 
-    public class Chocolate
-    {
+        [Fact]
+        public void Should_have_correct_name_When_cookie_with_chocolate()
+        {
+            Assert.Equal("🍪 with 🍫", new Cookie(new Chocolate()).ToString());
+        }
     }
 }
 
