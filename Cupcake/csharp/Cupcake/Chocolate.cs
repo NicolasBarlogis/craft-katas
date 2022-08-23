@@ -1,5 +1,5 @@
 namespace Cupcakes;
 
-public class Chocolate
+public class Chocolate : Topping
 {
 }

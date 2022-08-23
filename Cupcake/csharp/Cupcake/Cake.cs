@@ -1,17 +1,17 @@
 ﻿namespace Cupcakes;
 public abstract class Cake
 {
-    protected readonly Chocolate? Chocolate;
+    protected readonly Topping? Topping;
 
     protected abstract string Logo { get; }
 
-    protected Cake(Chocolate? chocolate = null)
+    protected Cake(Topping? topping = null)
     {
-        Chocolate = chocolate;
+        Topping = topping;
     }
 
     public override string ToString()
     {
-        return Chocolate is null ? Logo : Logo + " with 🍫";
+        return Topping is null ? Logo : Logo + " with 🍫";
     }
 }

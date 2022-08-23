@@ -2,7 +2,7 @@
 
 public class Cookie : Cake
 {
-    public Cookie(Chocolate? chocolate = null) : base(chocolate)
+    public Cookie(Topping? topping = null) : base(topping)
     {
 
     }
