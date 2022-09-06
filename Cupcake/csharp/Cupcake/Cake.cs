@@ -12,6 +12,6 @@ public abstract class Cake
 
     public override string ToString()
     {
-        return Topping is null ? Logo : Logo + " with 🍫";
+        return Topping is null ? Logo : Logo + Topping;
     }
 }
