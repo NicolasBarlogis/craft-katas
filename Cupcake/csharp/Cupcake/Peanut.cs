@@ -2,13 +2,8 @@
 
 public class Peanut : Topping
 {
-    public Peanut()
+    public Peanut(Topping? topping = null) : base(topping)
     {
-    }
-
-    public Peanut(Chocolate chocolate)
-    {
-        throw new NotImplementedException();
     }
 
     protected override string Logo => "🥜";

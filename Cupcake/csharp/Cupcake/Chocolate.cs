@@ -2,16 +2,9 @@
 
 public class Chocolate : Topping
 {
-    private readonly Peanut? _peanut;
-    
-    public Chocolate(Peanut peanut)
-    {
-        _peanut = peanut;
-    }
-
-    public Chocolate()
+    public Chocolate(Topping? topping = null) : base(topping)
     {
     }
 
-    protected override string Logo => _peanut is null ? "🍫" : "🍫 and " + _peanut;
+    protected override string Logo => "🍫";
 }

@@ -46,6 +46,12 @@ namespace CupcakeTest
         {
             Assert.Equal("🍪 with 🥜 and 🍫", new Cookie(new Peanut(new Chocolate())).ToString());
         }
+
+        [Fact]
+        public void Should_have_correct_name_When_cookie_with_three_chocolate_and_two_peanuts()
+        {
+            Assert.Equal("🧁 with 🍫 and 🍫 and 🍫 and 🥜 and 🥜", new Cupcake(new Chocolate(new Chocolate(new Chocolate(new Peanut(new Peanut()))))).ToString());
+        }
     }
 }
 
