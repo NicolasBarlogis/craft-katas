@@ -2,14 +2,16 @@
 
 public class Chocolate : Topping
 {
+    private readonly Peanut? _peanut;
+    
     public Chocolate(Peanut peanut)
     {
-        throw new NotImplementedException();
+        _peanut = peanut;
     }
 
     public Chocolate()
     {
     }
 
-    protected override string Logo => "🍫";
+    protected override string Logo => _peanut is null ? "🍫" : "🍫 and " + _peanut;
 }
