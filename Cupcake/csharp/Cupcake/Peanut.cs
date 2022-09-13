@@ -7,4 +7,6 @@ public class Peanut : Topping
     }
 
     protected override string Logo => "🥜";
+
+    protected override decimal Price => (decimal)0.2;
 }

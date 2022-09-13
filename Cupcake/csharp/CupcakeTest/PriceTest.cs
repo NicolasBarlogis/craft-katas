@@ -34,6 +34,18 @@ namespace CupcakeTest
         {
             Assert.Equal((decimal)2.2, new Cookie(new Peanut()).GetPrice());
         }
+
+        [Fact]
+        public void Should_have_correct_price_when_cookie_with_peanut_and_chocolate()
+        {
+            Assert.Equal((decimal)2.3, new Cookie(new Peanut(new Chocolate())).GetPrice());
+        }
+
+        [Fact]
+        public void Should_have_correct_correct_price_When_cookie_with_three_chocolate_and_two_peanuts()
+        {
+            Assert.Equal((decimal)1.7, new Cupcake(new Chocolate(new Chocolate(new Chocolate(new Peanut(new Peanut()))))).GetPrice());
+        }
     }
 }
 

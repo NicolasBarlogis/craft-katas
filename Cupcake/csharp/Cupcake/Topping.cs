@@ -6,6 +6,8 @@ public abstract class Topping
 
     protected abstract string Logo { get; }
 
+    protected abstract decimal Price { get; }
+
     protected Topping(Topping? nextTopping = null)
     {
         _nextTopping = nextTopping;
@@ -18,6 +20,6 @@ public abstract class Topping
 
     public decimal GetPrice()
     {
-        throw new NotImplementedException();
+        return _nextTopping is not null ? Price + _nextTopping.GetPrice() : Price;
     }
 }
