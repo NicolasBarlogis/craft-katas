@@ -6,9 +6,21 @@ namespace CupcakeTest
     public class PriceTest
     {
         [Fact]
-        public void Should_have_correct_price_When_cupcake()
+        public void Should_have_correct_price_when_cupcake()
         {
-            Assert.Equal(1, new Cookie().GetPrice());
+            Assert.Equal(1, new Cupcake().GetPrice());
+        }
+
+        [Fact]
+        public void Should_have_correct_price_when_cookie()
+        {
+            Assert.Equal(2, new Cookie().GetPrice());
+        }
+
+        [Fact]
+        public void Should_have_correct_price_when_cupcake_with_chocolate()
+        {
+            Assert.Equal((decimal)1.1, new Cupcake(new Chocolate()).GetPrice());
         }
     }
 }

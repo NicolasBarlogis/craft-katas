@@ -4,7 +4,7 @@ public abstract class Cake
     protected readonly Topping? Topping;
 
     protected abstract string Logo { get; }
-
+    
     protected Cake(Topping? topping = null)
     {
         Topping = topping;
@@ -14,4 +14,6 @@ public abstract class Cake
     {
         return Topping is null ? Logo : Logo + " with " + Topping;
     }
+
+    public abstract decimal GetPrice();
 }
