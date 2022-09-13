@@ -15,4 +15,9 @@ public abstract class Topping
     {
         return _nextTopping is null ? Logo : Logo + " and " + _nextTopping;
     }
+
+    public decimal GetPrice()
+    {
+        throw new NotImplementedException();
+    }
 }
