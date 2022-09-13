@@ -54,14 +54,3 @@ namespace CupcakeTest
         }
     }
 }
-
-/*
- ### About name function or method
-
--The name function should return “🧁”
--   The name function should return “🍪”
--   The name function should return “🧁 with 🍫”
--   The name function should return “🍪 with 🍫”
--   The name function should return “🍪 with 🍫 and 🥜”
--   The name function should return “🍪 with 🥜 and 🍫”
-*/

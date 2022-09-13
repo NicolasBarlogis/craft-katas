@@ -8,5 +8,9 @@ public class Cookie : Cake
     }
 
     protected override string Logo => "🍪";
-    
+
+    public int GetPrice()
+    {
+        return 1;
+    }
 }
