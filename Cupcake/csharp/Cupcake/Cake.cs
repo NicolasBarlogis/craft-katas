@@ -1,5 +1,5 @@
 ﻿namespace Cupcakes;
-public abstract class Cake
+public abstract class Cake : IPackable
 {
     protected readonly Topping? Topping;
 

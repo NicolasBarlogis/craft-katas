@@ -1,4 +1,6 @@
-﻿using Cupcakes;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Cupcakes;
 using Xunit;
 
 namespace CupcakeTest;
@@ -24,25 +26,37 @@ public sealed class BundleTests
         Assert.Equal(1, bundle.GetPrice());
         Assert.Equal("📦 contains 🧁", bundle.ToString());
     }
+
+    [Fact]
+    public void We_Can_Build_A_Bundle_With_One_Cupcake_And_One_Cookie_And_Check_Price_Or_Description()
+    {
+        Bundle bundle = new();
+
+        bundle.Add(new Cupcake());
+        bundle.Add(new Cookie());
+
+        Assert.Equal(3, bundle.GetPrice());
+        Assert.Equal("📦 contains 🧁 and 🍪", bundle.ToString());
+    }
 }
 
 public sealed class Bundle
 {
-    private Cupcake? _cupcake;
+    private readonly List<IPackable> _items = new ();
 
-    public void Add(Cupcake cupcake)
+    public void Add(IPackable item)
     {
-        _cupcake = cupcake;
+        _items.Add(item);
     }
 
     public decimal GetPrice()
     {
-        return _cupcake?.GetPrice() ?? 0;
+        return _items.Sum(item => item.GetPrice());
     }
 
     public override string ToString()
     {
-        return _cupcake is not null ? "📦 contains " + _cupcake : "empty 📦";
+        return _item is not null ? "📦 contains " + _item : "empty 📦";
     }
 }
 
