@@ -38,6 +38,20 @@ public sealed class BundleTests
         Assert.Equal(3, bundle.GetPrice());
         Assert.Equal("📦 contains 🧁 and 🍪", bundle.ToString());
     }
+
+    [Fact]
+    public void We_Can_Build_A_Bundle_With_Two_Cupcake_And_One_Cookie_And_Check_Price_Or_Description()
+    {
+        Bundle bundle = new();
+
+        bundle.Add(new Cupcake(new Chocolate()));
+        bundle.Add(new Cupcake(new Peanut()));
+        
+        bundle.Add(new Cookie());
+
+        Assert.Equal((decimal)4.3, bundle.GetPrice());
+        Assert.Equal("📦 contains 🧁 with 🍫 and 🧁 with 🥜 and 🍪", bundle.ToString());
+    }
 }
 
 public sealed class Bundle
@@ -56,7 +70,18 @@ public sealed class Bundle
 
     public override string ToString()
     {
-        return _item is not null ? "📦 contains " + _item : "empty 📦";
+        if (!_items.Any())
+        {
+            return "empty 📦";
+        }
+
+        var bundleMessage = "📦 contains " + _items[0];
+        for (var i = 1; i < _items.Count; i++)
+        {
+            bundleMessage += " and " + _items[i];
+        }
+
+        return bundleMessage;
     }
 }
 
