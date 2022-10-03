@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Cupcakes;
 using Xunit;
 
@@ -52,36 +51,22 @@ public sealed class BundleTests
         Assert.Equal((decimal)4.3, bundle.GetPrice());
         Assert.Equal("📦 contains 🧁 with 🍫 and 🧁 with 🥜 and 🍪", bundle.ToString());
     }
-}
 
-public sealed class Bundle
-{
-    private readonly List<IPackable> _items = new ();
-
-    public void Add(IPackable item)
+    [Fact]
+    public void We_Can_Build_A_Bundle_Containing_Two_Bundles_One_Three_Cookies_One_With_Three_Cupcakes()
     {
-        _items.Add(item);
-    }
+        Bundle bundle = new();
 
-    public decimal GetPrice()
-    {
-        return _items.Sum(item => item.GetPrice());
-    }
+        Bundle bundleCookie = new Bundle();
+        Bundle bundleCupcake = new Bundle();
 
-    public override string ToString()
-    {
-        if (!_items.Any())
-        {
-            return "empty 📦";
-        }
+        bundleCookie.Add(new Cookie(), new Cookie(), new Cookie());
+        bundleCupcake.Add(new Cupcake(), new Cupcake(), new Cupcake());
 
-        var bundleMessage = "📦 contains " + _items[0];
-        for (var i = 1; i < _items.Count; i++)
-        {
-            bundleMessage += " and " + _items[i];
-        }
+        bundle.Add(bundleCookie, bundleCupcake);
 
-        return bundleMessage;
+        Assert.Equal((decimal)9, bundle.GetPrice());
+        Assert.Equal("📦 contains 📦📦 one with 🍪🍪🍪 one with 🧁🧁🧁", bundle.ToString());
     }
 }
 
